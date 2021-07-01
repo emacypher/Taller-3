@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  padding: 20px;
+}
+.buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.button_intel {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-top: 20px;
+  background-image: url(https://logodownload.org/wp-content/uploads/2014/04/intel-logo-3-1.png);
+  background-size: contain;
+}
+
+.button_amd {
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 150px;
+  height: 150px;
+  margin-top: 20px;
+  background-image: url(https://www.hd-tecnologia.com/imagenes/articulos/2013/07/AMD-logo-2013.jpg);
+  background-size: 100% 70%;
+  background-position: center;
+}

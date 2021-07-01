@@ -1,0 +1,17 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #dddddd;
+    margin: 20px;
+    flex-direction: column;
+    margin-bottom: 150px;
+    padding: 20px;
+    text-align: center;
+
+}
+
+.alumn{
+    
+    margin-bottom: 30px;
+}

@@ -1,0 +1,28 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #26293C;
+    color: white;
+    padding: 70px;
+    
+    
+}
+
+.title {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.foro {
+    
+    height: 600px;
+    background-image: url(https://images.pexels.com/photos/211122/pexels-photo-211122.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260);
+    background-size: cover;
+    
+}
+.foro h1 {
+    color:#fff;
+    margin:0;
+}
