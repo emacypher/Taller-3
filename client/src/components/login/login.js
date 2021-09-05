@@ -1,72 +1,106 @@
 import React, { useState } from "react";
-import Button from "@material-ui/core/Button";
-import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login } from "../../redux/actionCreaton.js";
 import axios from "axios";
 import style from "./login.module.css";
+import UserPhoto from "../../assets/userPhoto.png";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { ErrorMessage } from "@hookform/error-message";
+import ShowPassword from "../../assets/remove_red_eye.png";
 
 const Login = () => {
+  const [state, setState] = useState({
+    password: true,
+  });
   const history = useHistory();
   const dispatch = useDispatch();
   //Iniciamos un estado para poder guardar los datos de los inputs y damos estado de inicio con UseState
-  const [input, setInput] = useState({
-    email: "",
-    password: "",
+  const schema = yup.object().shape({
+    email: yup.string().email().required(),
+    password: yup.string().min(6).max(15).required(),
+  });
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
   });
 
   //Función encargada de hacer la peticion de Login al server
-  const getLogin = () => {
+  const getLogin = (data) => {
     //Axios es el encargado de hacer petición, especificamos la ruta y mandamos los valores del estado
-    axios.post("http://localhost:5000/auth/login", input).then((data) => {
+    axios.post("http://localhost:5000/auth/login", data).then((data) => {
       data.status === 200 && successLogin(data.data);
     });
   };
 
   const successLogin = (data) => {
+    console.log(data);
     dispatch(login(data));
     history.push("/");
   };
-
+  const submitForm = (data) => {
+    getLogin(data);
+  };
   return (
-    <div className={style.container}>
-      <ValidatorForm
-        onError={() => alert("No puede hacer esto")}
-        onSubmit={() => getLogin()}
-      >
-        <TextValidator
-          style={{ margin: "20px" }}
-          label="Email"
+    <div className={style.Container}>
+      <div className={style.UserPhoto}>
+        <img src={UserPhoto} className={style.PhotoUser} alt="UserPhoto" />
+      </div>
+      <form onSubmit={handleSubmit(submitForm)} style={{ width: "100%" }}>
+        <label className={style.Labels}>EMAIL</label>
+        <input
+          {...register("email", { required: true })}
+          autoComplete="off"
+          className={style.Inputs}
+          type="text"
+        />
+        <ErrorMessage
+          errors={errors}
           name="email"
-          value={input.email}
-          onChange={(e) =>
-            setInput({ ...input, [e.target.name]: e.target.value })
-          }
-          validators={["required", "isEmail"]}
-          errorMessages={["Es un valor requerido", "Ingrese un mail valido"]}
+          render={({ message }) => (
+            <p style={{ color: "#FF2626" }}>Verificar este campo</p>
+          )}
         />
-        <TextValidator
-          style={{ margin: "20px" }}
-          label="Password"
+        <label className={style.Labels}>PASSWORD</label>
+        <div className={style.ContainerInputPassword}>
+          <input
+            className={style.InputPassword}
+            {...register("password", { required: true })}
+            type={state.password ? "password" : "text"}
+          />
+          <img
+            className={style.ButtonPassword}
+            src={ShowPassword}
+            onClick={() =>
+              setState({
+                ...state,
+                password: !state.password,
+              })
+            }
+            alt="Showpassword"
+          />
+        </div>
+        <ErrorMessage
+          errors={errors}
           name="password"
-          type="password"
-          value={input.password}
-          onChange={(e) =>
-            setInput({ ...input, [e.target.name]: e.target.value })
-          }
-          validators={["required"]}
-          errorMessages={["Es un valor requerido"]}
+          render={({ message }) => (
+            <p style={{ color: "#FF2626" }}>Verificar este campo</p>
+          )}
         />
-        <Button
-          style={{ margin: "20px" }}
-          type="submit"
-          variant="contained"
-          color="primary"
-        >
-          Ingresar
-        </Button>
-      </ValidatorForm>
+        <button type="submit" className={style.Button}>
+          INGRESAR
+        </button>
+      </form>
+      <h4 className={style.Labels}>Olvide mi contraseña</h4>
+      <a href="/register" style={{ textDecoration: "none" }}>
+        <h4 className={style.Labels}>Registar</h4>
+      </a>
     </div>
   );
 };

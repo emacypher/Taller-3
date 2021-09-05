@@ -1,28 +1,113 @@
-.main {
-  margin-bottom: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 .container {
   padding: 20px;
-  display: grid;
-  grid-template-columns: repeat(4, 1.5fr);
-  grid-gap: 10px;
   margin-top: 10px;
   margin-bottom: 30px;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  text-align: center;
 }
-.buttons {
-  display: flex;
-  justify-content: center;
-}
-.right {
-  margin-left: 25%;
+.Columns {
+  color: white;
+  font-family: "Righteous", cursive;
 }
 
-.left {
-  margin-right: 25%;
+.Field {
+  background-color: #ff4c29;
+  color: white;
+  font-family: "Righteous", cursive;
+  border-right: 2px solid #2c394b;
+  margin-bottom: 2em;
+}
+
+table {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+td,
+th {
+  width: 300px;
+  height: 35px;
+}
+.FirstField {
+  background-color: #ff4c29;
+  border-right: 2px solid #2c394b;
+  color: white;
+  font-family: "Righteous", cursive;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  margin-bottom: 2em;
+}
+.LastField {
+  font-family: "Righteous", cursive;
+  color: black;
+  background-color: #c4c4c4;
+  width: 50px;
+  height: 1em;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  -webkit-transition: all 0.5s 0s ease, all 0.5s 0s ease;
+  -moz-transition: all 0.5s 0s ease, all 0.5s 0s ease;
+  -o-transition: all 0.5s 0s ease, all 0.5s 0s ease;
+  transition: all 0.5s 0s ease, all 0.5s 0s ease;
+}
+.LastField:active {
+  background-color: #334756;
+}
+.Select:focus {
+  outline: none;
+}
+
+.LastField:hover {
+  background-color: #334756;
+}
+.Select {
+  border: none;
+  border-radius: 50%;
+  background-color: #c4c4c4;
+  width: 50px;
+  height: 50px;
+  margin-left: 1em;
+  margin-right: 1em;
+  -webkit-transition: all 0.5s 0s ease, all 0.5s 0s ease;
+  -moz-transition: all 0.5s 0s ease, all 0.5s 0s ease;
+  -o-transition: all 0.5s 0s ease, all 0.5s 0s ease;
+  transition: all 0.5s 0s ease, all 0.5s 0s ease;
+}
+
+.Select:hover {
+  background-color: #334756;
+}
+
+.Select:active {
+  background-color: #334756;
+}
+
+.Arrow {
+  border: none;
+  border-radius: 50%;
+  background-color: #ff4c29;
+  width: 50px;
+  height: 50px;
+}
+
+.Arrow:focus {
+  outline: none;
+}
+
+.Arrow:active {
+  background-color: #334756;
+}
+
+.Arrow:hover {
+  background-color: #334756;
+}
+
+.ContainerButton {
+  margin-top: 2em;
+  display: flex;
+  justify-content: space-around;
 }

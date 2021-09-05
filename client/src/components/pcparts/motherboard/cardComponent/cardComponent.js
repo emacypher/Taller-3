@@ -1,16 +1,19 @@
 import React from "react";
 import style from "./cardComponent.module.css";
-import Button from "@material-ui/core/Button";
 import Arrow from "../../../../assets/Arrow.png";
-import backArrow from "../../../../assets/arrowBack.png";
-import nextArrow from "../../../../assets/arrowNext.png";
 
-const CardComponent = ({ list, next, back, toBack, index, handleSetPart }) => {
+const CardComponent = ({ list, handleSetPart }) => {
   const columns = [
     {
       title: "MODELO",
       dataIndex: "Name",
       key: "Name",
+      width: 100,
+    },
+    {
+      title: "SOCKET",
+      dataIndex: "Socket",
+      key: "Socket",
       width: 100,
     },
     {
@@ -20,13 +23,7 @@ const CardComponent = ({ list, next, back, toBack, index, handleSetPart }) => {
       width: 100,
     },
     {
-      title: "MEMORIA",
-      dataIndex: "Socket",
-      key: "Socket",
-      width: 100,
-    },
-    {
-      title: "CLOCK",
+      title: "CORES",
       dataIndex: "Cores",
       key: "Cores",
       width: 200,
@@ -56,14 +53,15 @@ const CardComponent = ({ list, next, back, toBack, index, handleSetPart }) => {
               return (
                 <>
                   <tr key={index} className={style.Fields}>
-                    <td className={style.FirstField}>{data.Product_Name}</td>
-                    <td className={style.Field}>{data.Released}</td>
-                    <td className={style.Field}>{data.Memory}</td>
-                    <td className={style.Field}>{data.GPU_clock}</td>
+                    <td className={style.FirstField}>{data.name}</td>
+                    <td className={style.Field}>{data["Socket(s)"]}</td>
+                    <td className={style.Field}>{data["Release Year"]}</td>
+                    <td className={style.Field}>{data["Form Factor"]}</td>
                     <td className={style.LastField}>MAS</td>
                     <button
+                      key={index}
                       className={style.Select}
-                      onClick={() => handleSetPart(data, "gpu")}
+                      onClick={() => handleSetPart(data, "motherboard")}
                     >
                       <img src={Arrow} />
                     </button>
@@ -73,14 +71,6 @@ const CardComponent = ({ list, next, back, toBack, index, handleSetPart }) => {
             })}
         </tbody>
       </table>
-      <div className={style.ContainerButton}>
-        <button className={style.Arrow} onClick={() => back()}>
-          <img src={backArrow} />
-        </button>
-        <button className={style.Arrow} onClick={() => next()}>
-          <img src={nextArrow} />
-        </button>
-      </div>
     </div>
   );
 };

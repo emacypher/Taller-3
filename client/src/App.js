@@ -1,5 +1,6 @@
 import React from "react";
 import SuccessRegister from "./components/register/success.register.js";
+import PcArmadas from "./components/pcarmadas/pcarmadas.js";
 import Register from "./components/register/register.js";
 import Pcparts from "./components/pcparts/pcparts.js";
 import Footer from "./components/footer/footer.js";
@@ -9,16 +10,24 @@ import About from "./components/about/about.js";
 import Login from "./components/login/login.js";
 import Home from "./components/home/home.js";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Noticias from "./components/noticias/noticias.js";
 
 function App() {
   return (
     <Router>
       <Switch>
+        <Route path="/pc_armadas">
+          <PcArmadas />
+        </Route>
         <Route path="/about">
           <NavBar />
           <About />
         </Route>
-        <Route path="/pc">
+        <Route path="/noticias">
+          <NavBar />
+          <Noticias />
+        </Route>
+        <Route path="/armar_pc">
           <NavBar />
           <Pcparts />
         </Route>
@@ -39,7 +48,6 @@ function App() {
           <Profile />
         </Route>
         <Route path="/">
-          <NavBar />
           <Home />
         </Route>
       </Switch>

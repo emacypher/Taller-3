@@ -4,7 +4,7 @@ import style from "./cpu.module.css";
 import axios from "axios";
 import CardComponent from "./cardComponent/cardComponent";
 
-const Cpu = ({ handleSetPart }) => {
+const Cpu = ({ handleSetPart, setTypeCPU }) => {
   const [showButton, setShowButton] = useState(true);
   const [cpu, setCpu] = useState({
     list: "",
@@ -13,6 +13,7 @@ const Cpu = ({ handleSetPart }) => {
   });
 
   const changeToIntel = async () => {
+    setTypeCPU("intel");
     await axios.get("http://localhost:5000/part/intel").then(({ data }) =>
       setCpu({
         ...cpu,
@@ -25,6 +26,7 @@ const Cpu = ({ handleSetPart }) => {
   };
 
   const changeToAmd = async () => {
+    setTypeCPU("amd");
     await axios.get("http://localhost:5000/part/amd").then(({ data }) =>
       setCpu({
         ...cpu,
@@ -61,26 +63,12 @@ const Cpu = ({ handleSetPart }) => {
     <div className={style.container}>
       {showButton ? (
         <div className={style.buttons}>
-          <h1>Comencemos eligiendo nuestro procesador</h1>
-          <div className={style.button_intel}>
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={() => changeToIntel()}
-            >
-              INTEL
-            </Button>
-          </div>
-          <div className={style.button_amd}>
-            <Button
-              name="amd"
-              variant="contained"
-              color="secondary"
-              onClick={() => changeToAmd()}
-            >
-              AMD
-            </Button>
-          </div>
+          <button className={style.button} onClick={() => changeToIntel()}>
+            INTEL
+          </button>
+          <button className={style.button} onClick={() => changeToAmd()}>
+            AMD
+          </button>
         </div>
       ) : (
         <CardComponent
@@ -90,6 +78,7 @@ const Cpu = ({ handleSetPart }) => {
           back={back}
           index={cpu.index}
           handleSetPart={handleSetPart}
+          length={cpu.list.length}
         />
       )}
     </div>

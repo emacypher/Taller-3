@@ -1,5 +1,88 @@
-.container {
-  position: flex;
-  justify-content: center;
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+
+.Container {
+  display: flex;
+  flex-direction: column;
   text-align: center;
+  align-items: center;
+  justify-content: center;
+  background-color: #082032;
+  height: 100vh;
+  padding-left: 20em;
+  padding-right: 20em;
+}
+
+.Labels {
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  font-family: "Righteous", cursive;
+}
+
+.Inputs {
+  width: 100%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  height: 3em;
+  background-color: #334756;
+  border: none;
+}
+.Inputs:focus {
+  outline: none;
+}
+.Button {
+  border: none;
+  width: 150px;
+  height: 35px;
+  border-radius: 20px;
+  background-color: #ff4c29;
+  color: white;
+  font-family: "Righteous", cursive;
+  font-size: 20px;
+}
+.UserPhoto {
+  margin-top: 2em;
+  margin-bottom: 1em;
+  width: 80px;
+  height: 80px;
+  background-color: #2c394b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+}
+
+.ContainerInputPassword {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  color: white;
+  width: 100%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  height: 3em;
+  background-color: #334756;
+  border: none;
+}
+.InputPassword {
+  background-color: #334756;
+  border: none;
+  width: 100%;
+}
+.InputPassword:focus {
+  outline: none;
+}
+.ButtonPassword {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  margin-right: 1em;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

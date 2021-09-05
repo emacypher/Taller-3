@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CardComponent from "./cardComponent/cardComponent";
-
+import style from "./gpu.module.css";
 const Gpu = ({ handleSetPart }) => {
   const [gpu, setGpu] = useState({
     list: [],
@@ -10,7 +10,6 @@ const Gpu = ({ handleSetPart }) => {
 
   useEffect(async () => {
     await axios.get("http://localhost:5000/part/gpu").then(({ data }) => {
-      console.log(data);
       setGpu({
         ...gpu,
         list: data.gpu,
@@ -34,7 +33,7 @@ const Gpu = ({ handleSetPart }) => {
   };
 
   return (
-    <>
+    <div className={style.container}>
       <CardComponent
         list={gpu.list.slice(gpu.index, gpu.index + 20)}
         next={next}
@@ -42,7 +41,7 @@ const Gpu = ({ handleSetPart }) => {
         index={gpu.index}
         handleSetPart={handleSetPart}
       />
-    </>
+    </div>
   );
 };
 

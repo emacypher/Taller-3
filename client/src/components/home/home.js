@@ -1,31 +1,58 @@
-import React from 'react';
-import style from './home.module.css';
-import Button from '@material-ui/core/Button'
-import { useHistory } from "react-router-dom";
+import React from "react";
+import Navbar from "../navbar/navbar";
+import style from "./home.module.css";
+
+const noticiesHard = [
+  {
+    title: "What is Lorem Ipsum?",
+    content:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    author: "Nunito",
+    photoUrl:
+      "2wCEAAkGBw4ODQ0NDQ0ODQoKCAoNCAgKCA8IDQoKFhEWFhURExMYHCggGBolGxMTITEhJSkrLi4uFx9EODMsNygtLisBCgoKBQUFDgUFDisZExkrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK",
+  },
+  {
+    title: "Why do we use it?",
+    content:
+      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+    author: "Nunito",
+    photoUrl:
+      "2wCEAAkGBw4ODQ0NDQ0ODQoKCAoNCAgKCA8IDQoKFhEWFhURExMYHCggGBolGxMTITEhJSkrLi4uFx9EODMsNygtLisBCgoKBQUFDgUFDisZExkrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK",
+  },
+  {
+    title: "What is Lorem Ipsum?",
+    content:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    author: "Nunito",
+    photoUrl:
+      "2wCEAAkGBw4ODQ0NDQ0ODQoKCAoNCAgKCA8IDQoKFhEWFhURExMYHCggGBolGxMTITEhJSkrLi4uFx9EODMsNygtLisBCgoKBQUFDgUFDisZExkrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK",
+  },
+  {
+    title: "Why do we use it?",
+    content:
+      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+    author: "Nunito",
+    photoUrl:
+      "2wCEAAkGBw4ODQ0NDQ0ODQoKCAoNCAgKCA8IDQoKFhEWFhURExMYHCggGBolGxMTITEhJSkrLi4uFx9EODMsNygtLisBCgoKBQUFDgUFDisZExkrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK",
+  },
+];
 
 const Home = () => {
-    var history = useHistory();
-    return(
-        <div>
-        <div className={style.container} >
-            <div  className={style.title}>
-                <h1 >Ayuda Hardware</h1>
-                <h2>Brindamos orientación sobre selección de piezas
-           de computadora y compatibilidad.</h2>
+  return (
+    <div className={style.Container}>
+      <Navbar />
+      <div className={style.About}></div>
+      <div className={style.Noticies}>
+        {noticiesHard.map((noticie) => {
+          return (
+            <div className={style.Noticie}>
+              <h4>{noticie.title}</h4>
             </div>
-            <div>
-                <Button variant="contained" color="primary" onClick={() => history.push("/")}>
-                  Comienza con el armado
-                </Button>
-            </div>
-        </div>
-            <div  className={style.foro}>
-               <h1>Proximamente el foro...</h1>
-              
-            </div>
-        </div>
-
-    )
-}
+          );
+        })}
+      </div>
+    </div>
+  );
+};
 
 export default Home;

@@ -1,111 +1,150 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
-import Button from "@material-ui/core/Button"; //Importacion de botones
-import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
-import style from "../login/login.module.css";
-
+import style from "./register.module.css";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { ErrorMessage } from "@hookform/error-message";
+import ShowPassword from "../../assets/remove_red_eye.png";
 
 const Register = () => {
-  const history = useHistory();
-  const [input, setInput] = useState({
-    email: "",
-    password: "",
-    name: "",
-    repeatPassword: "",
-  });
   const [state, setState] = useState({
-    isLoading: "",
+    confirmPassword: true,
+    password: true,
   });
-  useEffect(() => {
-    ValidatorForm.addValidationRule("isPasswordMatch", (value) => {
-      if (value !== input.password) {
-        return false;
-      }
-      return true;
-    });
+
+  const schema = yup.object().shape({
+    name: yup
+      .string()
+      .required()
+      .matches(/^[a-z ,.'-]+$/i, "Is not in correct format"),
+    email: yup.string().email().required(),
+    password: yup.string().min(6).max(15).required(),
+    confirmPassword: yup
+      .string()
+      .oneOf([yup.ref("password", undefined)])
+      .required(),
   });
-  const handleRegister = async () => {
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+
+  const submitForm = (data) => {
+    handleRegister(data);
+  };
+
+  const handleRegister = async (data) => {
     //Axios es el encargado de hacer petición, especificamos la ruta y mandamos los valores del estado
     try {
-      setState({ isLoading: true });
       const response = await axios.post("http://localhost:5000/auth/register", {
-        name: input.name,
-        password: input.password,
-        email: input.email,
+        name: data.name,
+        password: data.password,
+        email: data.email,
       });
-      if (response.status === 200) history.push("/success_register");
+      if (response.status === 200) window.location = "/success_register";
       if (response.status !== 200) return alert("Error revise los datos");
     } catch (error) {
       console.log(error);
-    } finally {
-      setState({ isLoading: false });
     }
   };
+
   return (
-    <div className={style.container}>
-      <ValidatorForm
-        onError={() => alert("No puede hacer esto")}
-        onSubmit={() => handleRegister()}
+    <div className={style.Container}>
+      <form
+        onSubmit={handleSubmit(submitForm)}
+        style={{ width: "100%", marginTop: "4em" }}
       >
-        <TextValidator
-          style={{ margin: "20px" }}
-          label="Ingrese un nombre"
-          name="name"
-          value={input.name}
-          onChange={(e) =>
-            setInput({ ...input, [e.target.name]: e.target.value })
-          }
-          validators={["required"]}
-          errorMessages={["Es un valor requerido"]}
-        />
-        <TextValidator
-          style={{ margin: "20px" }}
-          label="Ingrese un Email"
-          name="email"
-          value={input.email}
-          onChange={(e) =>
-            setInput({ ...input, [e.target.name]: e.target.value })
-          }
-          validators={["required", "isEmail"]}
-          errorMessages={["Es un valor requerido", "Ingrese un mail valido"]}
-        />
-        <TextValidator
-          style={{ margin: "20px" }}
-          label="Ingrese un Password"
+        <div className={style.ContainerInput}>
+          <label className={style.Labels}>NOMBRE</label>
+          <input
+            className={style.Inputs}
+            {...register("name", { required: true })}
+            type="text"
+          />
+          <ErrorMessage
+            errors={errors}
+            name="name"
+            render={({ message }) => (
+              <p style={{ color: "#FF2626" }}>Verificar este campo</p>
+            )}
+          />
+        </div>
+        <div className={style.ContainerInput}>
+          <label className={style.Labels}>EMAIL</label>
+          <input
+            {...register("email", { required: true })}
+            className={style.Inputs}
+            type="text"
+          />
+          <ErrorMessage
+            errors={errors}
+            name="email"
+            render={({ message }) => (
+              <p style={{ color: "#FF2626" }}>Verificar este campo</p>
+            )}
+          />
+        </div>
+        <label className={style.Labels}>PASSWORD</label>
+        <div className={style.ContainerInputPassword}>
+          <input
+            className={style.InputPassword}
+            {...register("password", { required: true })}
+            type={state.password ? "password" : "text"}
+          />
+          <img
+            className={style.ButtonPassword}
+            src={ShowPassword}
+            onClick={() =>
+              setState({
+                ...state,
+                password: !state.password,
+              })
+            }
+            alt="Showpassword"
+          />
+        </div>
+        <ErrorMessage
+          errors={errors}
           name="password"
-          type="password"
-          value={input.password}
-          onChange={(e) =>
-            setInput({ ...input, [e.target.name]: e.target.value })
-          }
-          validators={["required"]}
-          errorMessages={["Es un valor requerido"]}
+          render={({ message }) => (
+            <p style={{ color: "#FF2626" }}>Verificar este campo</p>
+          )}
         />
-        <TextValidator
-          style={{ margin: "20px" }}
-          label="Repetir su Password"
-          name="repeatPassword"
-          type="password"
-          value={input.repeatPassword}
-          onChange={(e) =>
-            setInput({ ...input, [e.target.name]: e.target.value })
-          }
-          validators={["isPasswordMatch", "required"]}
-          errorMessages={[
-            "Las contraseñas no son iguales",
-            "Es un valor requerido",
-          ]}
+        <label className={style.Labels}>REPETIR PASSWORD</label>
+        <div className={style.ContainerInputPassword}>
+          <input
+            {...register("confirmPassword", { required: true })}
+            className={style.InputPassword}
+            type={state.confirmPassword ? "password" : "text"}
+          />
+          <img
+            className={style.ButtonPassword}
+            src={ShowPassword}
+            alt="Showpassword"
+            onClick={() =>
+              setState({
+                ...state,
+                confirmPassword: !state.confirmPassword,
+              })
+            }
+          />
+        </div>
+        <ErrorMessage
+          errors={errors}
+          name="confirmPassword"
+          render={({ message }) => (
+            <p style={{ color: "#FF2626" }}>Verificar este campo</p>
+          )}
         />
-        <Button
-          style={{ margin: "20px" }}
-          type="submit"
-          variant="contained"
-          color="primary"
-        >
-          Ingresar
-        </Button>
-      </ValidatorForm>
+        <button type="submit" className={style.Button}>
+          Registrar
+        </button>
+      </form>
     </div>
   );
 };

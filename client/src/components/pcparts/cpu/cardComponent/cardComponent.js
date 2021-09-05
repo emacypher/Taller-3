@@ -1,23 +1,8 @@
 import React from "react";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import { makeStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
 import style from "./cardComponent.module.css";
-import Button from "@material-ui/core/Button";
-import Card from "@material-ui/core/Card";
-
-const useStyles = makeStyles({
-  root: {
-    width: 200,
-    height: 200,
-    background: "#77ACF1",
-    marginBottom: 10,
-    marginLeft: 10,
-  },
-});
-
+import Arrow from "../../../../assets/Arrow.png";
+import backArrow from "../../../../assets/arrowBack.png";
+import nextArrow from "../../../../assets/arrowNext.png";
 const CardComponent = ({
   list,
   comeBack,
@@ -25,88 +10,84 @@ const CardComponent = ({
   back,
   index,
   handleSetPart,
+  length,
 }) => {
-  const classes = useStyles();
+  const indices = length / 20;
+  const columns = [
+    {
+      title: "MODELO",
+      dataIndex: "Name",
+      key: "Name",
+      width: 100,
+    },
+    {
+      title: "AÑO",
+      dataIndex: "Released",
+      key: "Released",
+      width: 100,
+    },
+    {
+      title: "SOCKET",
+      dataIndex: "Socket",
+      key: "Socket",
+      width: 100,
+    },
+    {
+      title: "CORES",
+      dataIndex: "Cores",
+      key: "Cores",
+      width: 200,
+    },
+    {
+      title: "",
+      dataIndex: "",
+      key: "operations",
+      render: () => <a href="#">Delete</a>,
+    },
+  ];
   return (
-    <div className={style.main}>
-      <div>
-        <Button
-          size="small"
-          variant="contained"
-          color="primary"
-          onClick={() => comeBack()}
-        >
-          Volver Atras
-        </Button>
-      </div>
-      <div className={style.container}>
-        {list.map((cpu, i) => (
-          <Card className={classes.root} key={i}>
-            <CardActionArea>
-              <CardContent>
-                <Typography gutterBottom variant="h8" component="h4">
-                  {cpu.Name}
-                </Typography>
-                <Typography gutterBottom variant="h10" component="h4">
-                  Cores: {cpu.Cores}
-                </Typography>
-                <Typography gutterBottom variant="h10" component="h4">
-                  Clock: {cpu.Clock}
-                </Typography>
-                <Typography gutterBottom variant="h10" component="h4">
-                  Socket: {cpu.Socket}
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-            <CardActions>
-              <Button
-                variant="contained"
-                size="small"
-                color="primary"
-                onClick={() => handleSetPart(cpu, "cpu")}
-              >
-                Seleccionar
-              </Button>
-            </CardActions>
-          </Card>
-        ))}
-      </div>
-      <div className={style.buttons}>
-        <div className={style.left}>
-          {index === 0 && (
-            <Button size="small" variant="contained" disable>
-              Anterior
-            </Button>
-          )}
-
-          {index !== 0 && (
-            <Button
-              size="small"
-              variant="contained"
-              color="primary"
-              onClick={() => back()}
-            >
-              Anterior
-            </Button>
-          )}
-        </div>
-        <div className={style.right}>
-          {list.length < 20 && (
-            <Button size="small" variant="contained" disable>
-              Siguiente
-            </Button>
-          )}
-          {list.length === 20 && (
-            <Button
-              size="small"
-              variant="contained"
-              color="primary"
-              onClick={() => next()}
-            >
-              Siguiente
-            </Button>
-          )}
-        </div>
+    <div className={style.container}>
+      <table>
+        <tbody>
+          <tr>
+            {columns.map((field, index) => {
+              return (
+                <th key={index} className={style.Columns}>
+                  {field.title}
+                </th>
+              );
+            })}
+          </tr>
+          {list &&
+            list.map((data, index) => {
+              return (
+                <>
+                  <tr key={index} className={style.Fields}>
+                    <td className={style.FirstField}>{data.Name}</td>
+                    <td className={style.Field}>{data.Released}</td>
+                    <td className={style.Field}>{data.Socket}</td>
+                    <td className={style.Field}>{data.Cores}</td>
+                    <td className={style.LastField}>MAS</td>
+                    <button
+                      key={index}
+                      className={style.Select}
+                      onClick={() => handleSetPart(data, "cpu")}
+                    >
+                      <img src={Arrow} />
+                    </button>
+                  </tr>
+                </>
+              );
+            })}
+        </tbody>
+      </table>
+      <div className={style.ContainerButton}>
+        <button className={style.Arrow} onClick={() => back()}>
+          <img src={backArrow} />
+        </button>
+        <button className={style.Arrow} onClick={() => next()}>
+          <img src={nextArrow} />
+        </button>
       </div>
     </div>
   );
