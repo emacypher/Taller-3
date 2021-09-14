@@ -41,7 +41,9 @@ const Home = () => {
   return (
     <div className={style.Container}>
       <Navbar />
-      <div className={style.About}></div>
+      <div className={style.About}>
+        {/* <img src="https://www.logg.com.ar/static/NewPublic/home/armatupc.png"></img> */}
+      </div>
       <div className={style.Noticies}>
         {noticiesHard.map((noticie) => {
           return (
@@ -52,6 +54,7 @@ const Home = () => {
         })}
       </div>
     </div>
+    
   );
 };
 

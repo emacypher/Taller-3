@@ -5,9 +5,13 @@ const Fuente = ({ handleSetPart }) => {
   const [state, setState] = useState("");
   return (
     <>
+    
       <div className={style.Container}>
+      <h1 className={style.Field}>Fuentes Semi Modulares 80+</h1>
         <div className={style.Row}>
+        
           <div
+          
             className={style.PCS}
             onClick={() => handleSetPart("500W", "fuente")}
           >
@@ -17,7 +21,7 @@ const Fuente = ({ handleSetPart }) => {
             className={style.PCS}
             onClick={() => handleSetPart("650W", "fuente")}
           >
-            <p className={style.Field}>650W</p>
+            <p className={style.Field}>650W</p> 
           </div>
         </div>
         <div

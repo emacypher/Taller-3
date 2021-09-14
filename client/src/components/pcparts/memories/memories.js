@@ -5,10 +5,11 @@ import Ram from "../../../assets/memoriaRam.png";
 
 const Memories = (setearMemories) => {
   const [memories, setMemories] = useState({
-    ram: 0,
+    ram: 32,
+      size:32,
     disk: {
       type: "",
-      size: 0,
+      size: 64,
     },
   });
 
@@ -65,8 +66,10 @@ const Memories = (setearMemories) => {
       <div className={style.DivInput}>
         <input
           type="range"
-          min="0"
-          max="1032"
+
+          step="64"
+          min="64"
+          max="1024"
           onChange={(e) => handleChangeSize(e.target.value)}
         />
       </div>
@@ -78,8 +81,9 @@ const Memories = (setearMemories) => {
         <div className={style.DivInput}>
           <input
             type="range"
+            step="4"
             min="0"
-            max="64"
+            max="32"
             name="ram"
             onChange={(e) =>
               setMemories({

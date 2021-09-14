@@ -15,6 +15,7 @@ const Software = ({ setearSoftware }) => {
     <>
       {state && (
         <div className={style.Container}>
+          <h1 className={style.Field}>Software de referencia a utilizar</h1>
           <div className={style.Row}>
             <div
               className={style.PCS}
