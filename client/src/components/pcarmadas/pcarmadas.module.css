@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap");
+
+.Container {
+  background-color: #082032;
+  width: 100%;
+  height: 100vh;
+}
+.Row {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: minmax(5em, auto);
+}
+.PCS {
+  font-family: "Righteous", cursive;
+  padding: 1em 1em 1em 1em;
+  font-size: 15px;
+  color: white;
+  width: 200px;
+  height: 245px;
+  background-color: #ff4c29;
+  margin: 2em 5em 0em 5em;
+  border-radius: 30px;
+}
