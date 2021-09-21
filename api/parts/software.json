@@ -1,0 +1,80 @@
+{
+    "software" : [
+    {
+        "name" : "Adobe Photoshop",
+        "min": 
+        {
+            "amd": "2.5GHZ",
+            "intel": " 2.40GHz",
+            "gpu" : "1GB",
+            "disco" : "65GB",
+            "ram" : "4GB"
+        },
+        "med" : 
+        {
+            "amd": "4GHZ",
+            "intel": "3.2GHZ",
+            "gpu" : "2GB",
+            "disco" : "65GB",
+            "ram" : "8GB"
+        }
+    },
+    {
+        "name" : "Adobe Ilustrator",
+        "min": 
+        {
+            "amd": "2.5GHZ",
+            "intel": " 2.40GHz",
+            "gpu" : "1GB",
+            "disco" : "65GB",
+            "ram" : "4GB"
+        },
+        "med" : 
+        {
+            "amd": "4GHZ",
+            "intel": "3.2GHZ",
+            "gpu" : "2GB",
+            "disco" : "65GB",
+            "ram" : "8GB"
+        }
+    },
+    {
+        "name" : "GTA V",
+        "min": 
+        {
+            "amd": "2.5GHZ",
+            "intel": " 2.40GHz",
+            "gpu" : "1GB",
+            "disco" : "65GB",
+            "ram" : "4GB"
+        },
+        "med" : 
+        {
+            "amd": "4GHZ",
+            "intel": "3.2GHZ",
+            "gpu" : "2GB",
+            "disco" : "65GB",
+            "ram" : "8GB"
+        }
+    },
+    {
+        "name" : "Amnesia",
+        "min": 
+        {
+            "amd": "2.5GHZ",
+            "intel": " 2.40GHz",
+            "gpu" : "1GB",
+            "disco" : "65GB",
+            "ram" : "4GB"
+        },
+        "med" : 
+        {
+            "amd": "4GHZ",
+            "intel": "3.2GHZ",
+            "gpu" : "2GB",
+            "disco" : "65GB",
+            "ram" : "8GB"
+        }
+    }
+]
+}

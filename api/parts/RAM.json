@@ -1,0 +1,46 @@
+{
+    "Memoria Ram DDR4": [{
+            "name": "4Gb 2666 Mhz Fury Negro HyperX",
+            "Marca": " Kingston",
+            "Tipo": "SDRAM",
+            "Línea ": "Hyperx Fury",
+            "Modelo": "HX426C16FB3/4",
+            "Formato": "DDR4 / UDimm 288 Pines",
+            "Capacidad": " 4 Gb",
+            "Velocidad": "2666 Mhz",
+            "Latencia": "CL16",
+            "Voltage": "1.2 V",
+            "Color": "Negro"
+
+        },
+        {
+            "name": "8Gb 2666 Mhz Fury Negro HyperX",
+            "Marca": " Kingston",
+            "Tipo": "SDRAM",
+            "Línea ": "Hyperx Fury",
+            "Modelo": "HX426C16FB3/4",
+            "Formato": "DDR4 / UDimm 288 Pines",
+            "Capacidad": " 8 Gb",
+            "Velocidad": "2666 Mhz",
+            "Latencia": "CL16",
+            "Voltage": "1.2 V",
+            "Color": "Negro"
+
+        },
+        {
+            "name": "16Gb 2666 Mhz Fury Negro HyperX",
+            "Marca": " Kingston",
+            "Tipo": "SDRAM",
+            "Línea ": "Hyperx Fury",
+            "Modelo": "HX426C16FB3/4",
+            "Formato": "DDR4 / UDimm 288 Pines",
+            "Capacidad": " 16 Gb",
+            "Velocidad": "2666 Mhz",
+            "Latencia": "CL16",
+            "Voltage": "1.2 V",
+            "Color": "Negro"
+
+        }
+    ]
+
+}

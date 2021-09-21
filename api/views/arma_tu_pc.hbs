@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="./">
+    <title>ARMA TU PC</title>
+</head>
+
+<body>
+    <header>
+
+        {{!-- Nav bar toogle --}}
+
+        <nav class="navbar navbar-expand-md navbar-light bg-dark">
+            <div class="container">
+
+                <a class="navbar-brand text-white" href="/">AYUDAHARDWARE</a>
+                <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end " id="navbarMenu">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link text-white" href="/blog">BLOG</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="/Login">LOGIN</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="/register">REGISTRO</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        {{!-- Nav bar simple --}}
+        <nav class="navbar navbar-expand-md navbar-light bg-dark">
+            <div class="container">
+
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link text-white" href="/arma_tu_pc">ARMA TU PC</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="/guias_armado">GUIAS DE ARMADO</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="/pc_armadas">PC ARMADAS</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="/buscar_hardware">BUSCAR HARDWARE</a></li>
+                </ul>
+                <ul class="navbar-nav">
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Buscar</button>
+                    </form>
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+    {{!-- Contenido principal de la pagina --}}
+    <main>
+
+    </main>
+
+    {{!-- Footer --}}
+    <footer>
+        <section class="footer bg-dark">
+            <div class="container py-3">
+                <div class="row mt-5">
+                    <div class="col-sm-12 col-md-4 text-center text-white">
+                        <h3 class="mt-5">BUSCA UNA GUIA.<br>ARMA TU PC.<br>COMPARA.</h3>
+                    </div>
+                    <div class="col-sm-12 col-md-4 text-center text-white">
+                        <h3 class="mt-5">CATEGORIAS</h3>
+                        <ul class="navbar-nav">
+                            <li class="nav-item"><a class="nav-link text-white" href="/arma_tu_pc">ARMA TU PC</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="/guias_armado">GUIAS DE ARMADO</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="/pc_armadas">PC ARMADAS</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="/buscar_hardware">BUSCAR HARDWARE</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-12 col-md-4 text-center text-white">
+                        <h3 class="mt-5">INFORMACIÓN</h3>
+                        <ul class="navbar-nav">
+                            <li class="nav-item"><a class="nav-link text-white" href="/blog">BLOG</a></li>
+                            <li class="nav-item"><a class="nav-link text-white" href="/sobre_nosotros">SOBRE NOSOTROS</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <P class="text-white text-center mt-5">&#169;TALLER 3 2021</P>
+            </div>
+        </section>
+
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

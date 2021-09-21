@@ -1,0 +1,30 @@
+{
+    "Disco Solido": [{
+            "Marca": "WD",
+            "Modelo": "WDS120G2G0A",
+            "Tipo": "Interno",
+            "Capacidad": "120 Gb.",
+            "Interfaz": "Sata 3",
+            "Velocidad lectura": "540 MBPS",
+            "Velocidad sscritura": "435 MBPS"
+        },
+        {
+            "Marca": "Crucial",
+            "Modelo": "BX500",
+            "Tipo": "Interno",
+            "Capacidad": "480GB",
+            "Interfaz": "Sata 3",
+            "Velocidad lectura": "540 MBPS",
+            "Velocidad sscritura": "500 MBPS"
+        },
+        {
+            "Marca": "WD",
+            "Modelo": "WDS100T2G0A-00JH30",
+            "Tipo": "Interno",
+            "Capacidad": "1 TB",
+            "Interfaz": "Sata 3",
+            "Velocidad lectura": "545MBPS",
+            "Velocidad sscritura": "500 MBPS"
+        }
+    ]
+}
