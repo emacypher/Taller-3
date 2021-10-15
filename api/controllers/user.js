@@ -3,6 +3,7 @@ const { User } = require("../models/index.js");
 module.exports = {
   //Especificamos que usuario necesitamos
   getUserById: function (id) {
+    console.log(id);
     return User.findByPk(id);
   },
   //Especificamos cual eliminar

@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
 
 .container {
+  display: flex;
   padding: 20px;
   margin-top: 10px;
   margin-bottom: 30px;
@@ -15,6 +16,7 @@
 }
 
 .Field {
+  width: 25%;
   background-color: #ff4c29;
   color: white;
   font-family: "Righteous", cursive;
@@ -35,6 +37,7 @@ th {
   height: 35px;
 }
 .FirstField {
+  width: 25%;
   background-color: #ff4c29;
   border-right: 2px solid #2c394b;
   color: white;
@@ -47,7 +50,7 @@ th {
   font-family: "Righteous", cursive;
   color: black;
   background-color: #c4c4c4;
-  width: 50px;
+  width: 100%;
   height: 1em;
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
@@ -115,4 +118,25 @@ th {
   margin-top: 2em;
   display: flex;
   justify-content: space-around;
+}
+
+.Active {
+  display: block;
+}
+
+.Desactive {
+  display: none;
+}
+
+.Description {
+  font-family: "Righteous", cursive;
+  border-radius: 0em 0em 2em 2em;
+  width: 91%;
+  grid-template-columns: 1fr 1fr;
+  height: 5em;
+  display: grid;
+  flex-direction: column;
+  background-color: #c4c4c4;
+  justify-content: center;
+  align-items: center;
 }

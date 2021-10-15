@@ -6,6 +6,7 @@ import { login } from "../../redux/actionCreaton.js";
 import style from "./profile.module.css";
 import UserPhoto from "../../assets/userPhoto.png";
 import Pen from "../../assets/create.png";
+
 const Profile = () => {
   const history = useHistory();
   const dispatch = useDispatch();
@@ -14,6 +15,7 @@ const Profile = () => {
     id: useSelector((state) => state.id),
     name: useSelector((state) => state.name),
     email: useSelector((state) => state.email),
+    photoUrl: useSelector((state) => state.photo_url),
     password: "",
   });
 
@@ -37,13 +39,41 @@ const Profile = () => {
     }
   };
 
+  const postToPhoto = (img) => {
+    let body = new FormData()
+    body.set('key', '3b8489ea2bc0ad9ee80ec4ca5a1dfb27')
+    body.append('image', img)
+
+    return axios({
+      method: 'post',
+      url: 'https://api.imgbb.com/1/upload',
+      data: body
+    })
+  }
+
+  const fileChange = () => {
+    var file = document.getElementById('input_img');
+    
+    let body = new FormData()
+    body.set('key', '3b8489ea2bc0ad9ee80ec4ca5a1dfb27')
+    body.append('image', file.files[0])
+
+    return axios({
+      method: 'post',
+      url: 'https://api.imgbb.com/1/upload',
+      data: body
+    })
+    
+  };
+
   return (
     <div className={style.Container}>
       <div className={style.Profile}>
         <div className={style.Left}>
           <div className={style.BackgroundPhoto}>
-            <img src={UserPhoto} alt="ProfileUser" />
+            <img className={style.PhotoProfile} src={input.photoUrl} alt="ProfileUser" />
           </div>
+          <input type="file" id="input_img" onChange={() => fileChange()} accept="image/*"/>
           <button className={style.Button} onClick={() => handleProfile()}>
             EDITAR INFO
           </button>
@@ -68,6 +98,7 @@ const Profile = () => {
               className={style.Inputs}
               type="password"
               value={input.password}
+              placeholder="Ingrese nuevo password"
             />
             <img src={Pen} alt="Edit" className={style.Pencil} />
           </div>
@@ -76,6 +107,7 @@ const Profile = () => {
               className={style.Inputs}
               type="password"
               value={input.password}
+              placeholder="Repita nuevo password"
             />
             <img src={Pen} alt="Edit" className={style.Pencil} />
           </div>

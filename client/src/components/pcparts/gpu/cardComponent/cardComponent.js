@@ -1,9 +1,8 @@
 import React from "react";
 import style from "./cardComponent.module.css";
-import Button from "@material-ui/core/Button";
-import Arrow from "../../../../assets/Arrow.png";
 import backArrow from "../../../../assets/arrowBack.png";
 import nextArrow from "../../../../assets/arrowNext.png";
+import GpuCard from "../gpuCard/gpuCard";
 
 const CardComponent = ({ list, next, back, toBack, index, handleSetPart }) => {
   const columns = [
@@ -55,19 +54,12 @@ const CardComponent = ({ list, next, back, toBack, index, handleSetPart }) => {
             list.map((data, index) => {
               return (
                 <>
-                  <tr key={index} className={style.Fields}>
-                    <td className={style.FirstField}>{data.Product_Name}</td>
-                    <td className={style.Field}>{data.Released}</td>
-                    <td className={style.Field}>{data.Memory}</td>
-                    <td className={style.Field}>{data.GPU_clock}</td>
-                    <td className={style.LastField}>MAS</td>
-                    <button
-                      className={style.Select}
-                      onClick={() => handleSetPart(data, "gpu")}
-                    >
-                      <img src={Arrow} />
-                    </button>
-                  </tr>
+                  <GpuCard
+                    handleSetPart={handleSetPart}
+                    style={style}
+                    data={data}
+                    index={index}
+                  />
                 </>
               );
             })}

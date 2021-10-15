@@ -1,8 +1,9 @@
 import React from "react";
 import style from "./cardComponent.module.css";
-import Arrow from "../../../../assets/Arrow.png";
 import backArrow from "../../../../assets/arrowBack.png";
 import nextArrow from "../../../../assets/arrowNext.png";
+import CpuCard from "../cpuCard/cpuCard";
+
 const CardComponent = ({
   list,
   comeBack,
@@ -45,6 +46,7 @@ const CardComponent = ({
       render: () => <a href="#">Delete</a>,
     },
   ];
+
   return (
     <div className={style.container}>
       <table>
@@ -61,22 +63,12 @@ const CardComponent = ({
           {list &&
             list.map((data, index) => {
               return (
-                <>
-                  <tr key={index} className={style.Fields}>
-                    <td className={style.FirstField}>{data.Name}</td>
-                    <td className={style.Field}>{data.Released}</td>
-                    <td className={style.Field}>{data.Socket}</td>
-                    <td className={style.Field}>{data.Cores}</td>
-                    <td className={style.LastField}>MAS</td>
-                    <button
-                      key={index}
-                      className={style.Select}
-                      onClick={() => handleSetPart(data, "cpu")}
-                    >
-                      <img src={Arrow} />
-                    </button>
-                  </tr>
-                </>
+                <CpuCard
+                  handleSetPart={handleSetPart}
+                  style={style}
+                  data={data}
+                  index={index}
+                />
               );
             })}
         </tbody>

@@ -1,6 +1,7 @@
 import React from "react";
 import style from "./cardComponent.module.css";
 import Arrow from "../../../../assets/Arrow.png";
+import CardMother from "../cardMother/cardMother";
 
 const CardComponent = ({ list, handleSetPart }) => {
   const columns = [
@@ -51,22 +52,12 @@ const CardComponent = ({ list, handleSetPart }) => {
           {list &&
             list.map((data, index) => {
               return (
-                <>
-                  <tr key={index} className={style.Fields}>
-                    <td className={style.FirstField}>{data.name}</td>
-                    <td className={style.Field}>{data["Socket(s)"]}</td>
-                    <td className={style.Field}>{data["Release Year"]}</td>
-                    <td className={style.Field}>{data["Form Factor"]}</td>
-                    <td className={style.LastField}>MAS</td>
-                    <button
-                      key={index}
-                      className={style.Select}
-                      onClick={() => handleSetPart(data, "motherboard")}
-                    >
-                      <img src={Arrow} />
-                    </button>
-                  </tr>
-                </>
+                <CardMother
+                  handleSetPart={handleSetPart}
+                  style={style}
+                  data={data}
+                  index={index}
+                />
               );
             })}
         </tbody>

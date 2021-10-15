@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { connect } from "react-redux";
 import Cpu from "./cpu/cpu.js";
 import Gpu from "./gpu/gpu.js";
 import Memories from "./memories/memories.js";
@@ -8,14 +8,18 @@ import Fuente from "./fuente/fuente.js";
 import Software from "./software/software.js";
 import Perfomance from "./perfomance/perfomance.js";
 
-const Pcparts = () => {
+const mapStateToProps = (state) => {
+  return { store: state };
+};
+
+const Pcparts = ({ store }) => {
   const [parts, setParts] = useState({
-    cpu: "",
-    gpu: "",
-    ram: "",
-    motherboard: "",
-    disk: "",
-    fuente: "",
+    cpu: store.pc_select ? store.pc_select.cpu : "",
+    gpu: store.pc_select ? store.pc_select.gpu : "",
+    ram: store.pc_select ? store.pc_select.ram : "",
+    motherboard: store.pc_select ? store.pc_select.motherboard : "",
+    disk: store.pc_select ? store.pc_select.disk : "",
+    fuente: store.pc_select ? store.pc_select.fuente : "",
   });
 
   const [software, setSoftware] = useState("");
@@ -65,4 +69,4 @@ const Pcparts = () => {
   );
 };
 
-export default Pcparts;
+export default connect(mapStateToProps, null)(Pcparts);

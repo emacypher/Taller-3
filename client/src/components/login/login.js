@@ -12,10 +12,13 @@ import { ErrorMessage } from "@hookform/error-message";
 import ShowPassword from "../../assets/remove_red_eye.png";
 
 const Login = () => {
+  /* Controlar si se muestra o no la password */
   const [state, setState] = useState({
     password: true,
   });
+  /* Iniciamos history para poder redireccionar */
   const history = useHistory();
+  /* Iniciamos dispatch para actualizar el store de redux */
   const dispatch = useDispatch();
   //Iniciamos un estado para poder guardar los datos de los inputs y damos estado de inicio con UseState
   const schema = yup.object().shape({
@@ -40,13 +43,16 @@ const Login = () => {
   };
 
   const successLogin = (data) => {
-    console.log(data);
+    /* Despachamos a la store los datos */
     dispatch(login(data));
+    /* Volvemos al home */
     history.push("/");
   };
+
   const submitForm = (data) => {
     getLogin(data);
   };
+  
   return (
     <div className={style.Container}>
       <div className={style.UserPhoto}>

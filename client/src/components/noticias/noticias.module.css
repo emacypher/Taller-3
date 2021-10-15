@@ -40,6 +40,11 @@
   height: 95px;
   border-radius: 50%;
   background-color: #082032;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+
 }
 .ContainerPhoto {
   width: 85%;
@@ -50,6 +55,7 @@
   display: flex;
   justify-content: center;
   margin: 3em;
+  padding: 0em 0em 0em 3em;
 }
 .Content {
   padding-left: 4em;
@@ -65,5 +71,15 @@
   color: white;
   vertical-align: top;
 }
-.PhotoNotice {
+.ImgPhotoAutor {
+  width: 100px;  
+  height: 100px;
+  border-radius: 50px;
+}
+
+.TitleOtherNoticie{
+  margin-top: 0.5em;
+  background-color: #ff4c29;
+  padding: 0.5em;
+  border-radius: 20px;
 }

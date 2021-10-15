@@ -1,12 +1,12 @@
 const express = require("express");
 const {
-  getCpu,
   getCpuAmd,
   getCpuIntel,
   getGpu,
   getMotherboardAmd,
   getMotherboardIntel,
   getSoftware,
+  getPcArmadas,
 } = require("../controllers/pcparts.js");
 const router = express.Router();
 
@@ -22,4 +22,5 @@ router.get("/software", getSoftware);
 
 router.get("/gpu", getGpu);
 
+router.get("/pc_armadas", getPcArmadas);
 module.exports = router;

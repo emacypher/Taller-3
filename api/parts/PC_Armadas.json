@@ -7,38 +7,37 @@
                 "Codename": "Zen",
                 "Cores": 2,
                 "Clock": "3.5 GHz",
-                "Socket": "'Socket AM4'",
-                "Process": "'14 nm'",
-                "'L3 Cache'": "'4MB'",
-                "TDP": " '35 W'",
+                "Socket": "Socket AM4",
+                "Process": "14 nm",
+                "L3 Cache": "4MB",
+                "TDP": "35 W",
                 "Released": "Nov 20th, 2019"
               },
-              gpu: {
-                Product_Name: 'GeForce GTX 1660 SUPER',
-                GPU_Chip: 'TU116',
-                Released: 'Oct 29th, 2019',
-                Bus: 'PCIe 3.0 x16',
-                Memory: '6 GB, GDDR6, 192 bit',
-                GPU_clock: '1530 MHz',
-                Memory_clock: '1750 MHz',
-                Shaders_TMUs_ROPs: '1408 / 88 / 48'
+              "gpu": {
+                "Product_Name": "GeForce GTX 1660 SUPER",
+                "GPU_Chip": "TU116",
+                "Released": "Oct 29th, 2019",
+                "Bus": "PCIe 3.0 x16",
+                "Memory": "6 GB, GDDR6, 192 bit",
+                "GPU_clock": "1530 MHz",
+                "Memory_clock": "1750 MHz",
+                "Shaders_TMUs_ROPs": "1408 / 88 / 48"
               },
-              ram: '8',
-              motherboard: {
-                name: 'Asrock B450M Steel Legend',
-                'Socket(s)': '1x AM4',
-                'Form Factor': 'Micro-ATX',
-                Chipset: 'AMD B450',
-                RAM: '4x DDR4 @ 3533 MHz',
-                'Release Year': '2019',
-                'Audio Chip': 'Realtek ALC892',
-                SATA3: '4'
+              "ram": "8",
+              "motherboard": {
+                "name": "Asrock B450M Steel Legend",
+                "Socket(s)": "1x AM4",
+                "Form Factor": "Micro-ATX",
+                "Chipset": "AMD B450",
+                "RAM": "4x DDR4 @ 3533 MHz",
+                "Release Year": "2019",
+                "Audio Chip": "Realtek ALC892",
+                "SATA3": "4"
               },
-              disk: { type: 'SSD', size: '154' },
-              fuente: '700W',
-              type: 'amd'
-            },
+              "disk": { "type": "SSD", "size": "154" },
+              "fuente": "700W",
+              "type": "amd"
+            }
           }
-          
     ]
 }

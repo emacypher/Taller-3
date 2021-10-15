@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const post = require("../controllers/post.js");
+const user = require("../controllers/user.js");
 
 router.get("/", async (req, res) => {
   const postList = await post.read();
@@ -8,8 +9,11 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/:id", async (req, res) => {
-  const postList = await post.read();
-  return res.status(200).json(postList);
+  const postList = await post.getPostByid(req.params.id);
+  const author = await user.getUserById(postList.dataValues.userId);
+  const noticie = { post: postList, author: author };
+
+  return res.status(200).json(noticie);
 });
 
 router.post("/", async (req, res, next) => {
