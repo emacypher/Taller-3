@@ -10,7 +10,7 @@ const Cpu = ({ handleSetPart, setTypeCPU }) => {
     type: "",
     index: 0,
   });
-
+  /* Seleccionamos el tipo de marca de CPU */
   const changeToIntel = async () => {
     setTypeCPU("intel");
     await axios.get("http://localhost:5000/part/intel").then(({ data }) =>
@@ -60,6 +60,7 @@ const Cpu = ({ handleSetPart, setTypeCPU }) => {
   };
   return (
     <div className={style.container}>
+      {/* Seleccion de marca INTEL/AMD*/}
       {showButton ? (
         <div className={style.buttons}>
           <button className={style.button} onClick={() => changeToIntel()}>
@@ -70,6 +71,7 @@ const Cpu = ({ handleSetPart, setTypeCPU }) => {
           </button>
         </div>
       ) : (
+        /*Renderizado de las columnas y posee la lista de CPU */
         <CardComponent
           list={cpu.list.slice(cpu.index, cpu.index + 20)}
           comeBack={comeBack}

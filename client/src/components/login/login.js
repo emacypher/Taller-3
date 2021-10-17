@@ -37,9 +37,13 @@ const Login = () => {
   //Función encargada de hacer la peticion de Login al server
   const getLogin = (data) => {
     //Axios es el encargado de hacer petición, especificamos la ruta y mandamos los valores del estado
-    axios.post("http://localhost:5000/auth/login", data).then((data) => {
-      data.status === 200 && successLogin(data.data);
-    });
+    axios.post("http://localhost:5000/auth/login", data)
+    .then((data) => {
+      data.status === 200 && successLogin(data.data)
+    })
+    .catch((error) => {
+      alert("Verifique sus credenciales")
+    })
   };
 
   const successLogin = (data) => {

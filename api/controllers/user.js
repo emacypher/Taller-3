@@ -3,7 +3,6 @@ const { User } = require("../models/index.js");
 module.exports = {
   //Especificamos que usuario necesitamos
   getUserById: function (id) {
-    console.log(id);
     return User.findByPk(id);
   },
   //Especificamos cual eliminar
@@ -13,7 +12,7 @@ module.exports = {
   //Buscamos todos los usuarios
   read: function () {
     return User.findAll({
-      attributes: ["id", "email", "name", "roleId"],
+      attributes: ["id", "email", "name", "roleId", "about"],
     });
   },
   //Creamos

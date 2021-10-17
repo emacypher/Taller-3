@@ -32,11 +32,21 @@ router.delete('/:id', async (req, res) => {
 });
 
 router.put('/update', async(req,res,next)=>{
-    const response = await hashPassword(req.body.password);
-    req.body.password = response;
-    user.updateChanges(req.body.id, req.body)
-    .then(r => res.send(r))
-    .catch(next)
+  console.log(req.body)
+    if(req.body.password){
+      const response = await hashPassword(req.body.password);
+      req.body.password = response;
+      user.updateChanges(req.body.id, req.body)
+      .then(r => res.send(r))
+      .catch(next)
+    }else{
+      const {email, photoUrl, name} = req.body
+      const data = {email : email, photoUrl:photoUrl, name:name} 
+      user.updateChanges(req.body.id, data)
+      .then(r => res.send(r))
+      .catch(next)
+    }
+
 })
 
 async function hashPassword(password) {

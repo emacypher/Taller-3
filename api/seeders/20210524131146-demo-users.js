@@ -10,6 +10,7 @@ module.exports = {
           
           email: "Gustavo@test.com",
           roleId: 1,
+          about: "Diseñador, fotografo, redactor, tecnologo",
           photoUrl:
             "http://www.fcaktp.cu/wp-content/uploads/2019/05/default-user-image.png",
           // Important: Password not encrypted yet!
@@ -23,6 +24,7 @@ module.exports = {
           
           email: "Jack@test.com",
           roleId: 1,
+          about: "Diseñador, fotografo, redactor, tecnologo",
           photoUrl:
             "http://www.fcaktp.cu/wp-content/uploads/2019/05/default-user-image.png",
           // Important: Password not encrypted yet!
@@ -36,6 +38,7 @@ module.exports = {
           
           email: "Peter@test.com",
           roleId: 1,
+          about: "Diseñador, fotografo, redactor, tecnologo",
           photoUrl:
             "http://www.fcaktp.cu/wp-content/uploads/2019/05/default-user-image.png",
           // Important: Password not encrypted yet!
@@ -49,6 +52,7 @@ module.exports = {
           
           email: "Fabricio@test.com",
           roleId: 1,
+          about: "Diseñador, fotografo, redactor, tecnologo",
           photoUrl:
             "http://www.fcaktp.cu/wp-content/uploads/2019/05/default-user-image.png",
           // Important: Password not encrypted yet!
@@ -62,6 +66,7 @@ module.exports = {
           
           email: "Victoria@test.com",
           roleId: 1,
+          about: "Diseñador, fotografo, redactor, tecnologo",
           photoUrl:
             "http://www.fcaktp.cu/wp-content/uploads/2019/05/default-user-image.png",
           // Important: Password not encrypted yet!
@@ -75,6 +80,7 @@ module.exports = {
           
           email: "Celeste@test.com",
           roleId: 1,
+          about: "Diseñador, fotografo, redactor, tecnologo",
           photoUrl:
             "http://www.fcaktp.cu/wp-content/uploads/2019/05/default-user-image.png",
           // Important: Password not encrypted yet!
@@ -88,6 +94,7 @@ module.exports = {
           
           email: "Rick@test.com",
           roleId: 1,
+          about: "Diseñador, fotografo, redactor, tecnologo",
           photoUrl:
             "http://www.fcaktp.cu/wp-content/uploads/2019/05/default-user-image.png",
           // Important: Password not encrypted yet!
@@ -101,6 +108,7 @@ module.exports = {
           
           email: "Sergio@test.com",
           roleId: 1,
+          about: "Diseñador, fotografo, redactor, tecnologo",
           photoUrl:
             "http://www.fcaktp.cu/wp-content/uploads/2019/05/default-user-image.png",
           // Important: Password not encrypted yet!
@@ -114,6 +122,7 @@ module.exports = {
           
           email: "Esteban@test.com",
           roleId: 1,
+          about: "Diseñador, fotografo, redactor, tecnologo",
           photoUrl:
             "http://www.fcaktp.cu/wp-content/uploads/2019/05/default-user-image.png",
           // Important: Password not encrypted yet!
@@ -127,6 +136,7 @@ module.exports = {
           
           email: "David@test.com",
           roleId: 1,
+          about: "Diseñador, fotografo, redactor, tecnologo",
           photoUrl:
             "http://www.fcaktp.cu/wp-content/uploads/2019/05/default-user-image.png",
           // Important: Password not encrypted yet!
@@ -141,6 +151,7 @@ module.exports = {
           
           email: "Victor@test.com",
           roleId: 2,
+          about: "Diseñador, fotografo, redactor, tecnologo",
           photoUrl:
             "http://www.fcaktp.cu/wp-content/uploads/2019/05/default-user-image.png",
           // Important: Password not encrypted yet!
@@ -154,6 +165,7 @@ module.exports = {
           
           email: "Luis@test.com",
           roleId: 2,
+          about: "Diseñador, fotografo, redactor, tecnologo",
           photoUrl:
             "http://www.fcaktp.cu/wp-content/uploads/2019/05/default-user-image.png",
           // Important: Password not encrypted yet!
@@ -167,6 +179,7 @@ module.exports = {
           
           email: "Homer@test.com",
           roleId: 2,
+          about: "Diseñador, fotografo, redactor, tecnologo",
           photoUrl:
             "http://www.fcaktp.cu/wp-content/uploads/2019/05/default-user-image.png",
           // Important: Password not encrypted yet!
@@ -180,6 +193,7 @@ module.exports = {
           
           email: "Ignacion@test.com",
           roleId: 2,
+          about: "Diseñador, fotografo, redactor, tecnologo",
           photoUrl:
             "http://www.fcaktp.cu/wp-content/uploads/2019/05/default-user-image.png",
           // Important: Password not encrypted yet!
@@ -193,6 +207,7 @@ module.exports = {
           
           email: "Antonela@test.com",
           roleId: 2,
+          about: "Diseñador, fotografo, redactor, tecnologo",
           photoUrl:
             "http://www.fcaktp.cu/wp-content/uploads/2019/05/default-user-image.png",
           // Important: Password not encrypted yet!
@@ -206,6 +221,7 @@ module.exports = {
           
           email: "Virginia@test.com",
           roleId: 2,
+          about: "Diseñador, fotografo, redactor, tecnologo",
           photoUrl:
             "http://www.fcaktp.cu/wp-content/uploads/2019/05/default-user-image.png",
           // Important: Password not encrypted yet!
@@ -219,6 +235,7 @@ module.exports = {
           
           email: "Selene@test.com",
           roleId: 2,
+          about: "Diseñador, fotografo, redactor, tecnologo",
           photoUrl:
             "http://www.fcaktp.cu/wp-content/uploads/2019/05/default-user-image.png",
           // Important: Password not encrypted yet!
@@ -232,6 +249,7 @@ module.exports = {
           
           email: "Clarisa@test.com",
           roleId: 2,
+          about: "Diseñador, fotografo, redactor, tecnologo",
           photoUrl:
             "http://www.fcaktp.cu/wp-content/uploads/2019/05/default-user-image.png",
           // Important: Password not encrypted yet!
@@ -245,6 +263,7 @@ module.exports = {
           
           email: "Genaro@test.com",
           roleId: 2,
+          about: "Diseñador, fotografo, redactor, tecnologo",
           photoUrl:
             "http://www.fcaktp.cu/wp-content/uploads/2019/05/default-user-image.png",
           // Important: Password not encrypted yet!
@@ -258,6 +277,7 @@ module.exports = {
           
           email: "Hector@test.com",
           roleId: 2,
+          about: "Diseñador, fotografo, redactor, tecnologo",
           photoUrl:
             "http://www.fcaktp.cu/wp-content/uploads/2019/05/default-user-image.png",
           // Important: Password not encrypted yet!

@@ -23,6 +23,9 @@ module.exports = {
       photoUrl: {
         type: Sequelize.STRING
       },
+      about: {
+        type: Sequelize.STRING
+      },
       pc: {
         type: Sequelize.JSON
       },

@@ -12,7 +12,6 @@ router.get("/:id", async (req, res) => {
   const postList = await post.getPostByid(req.params.id);
   const author = await user.getUserById(postList.dataValues.userId);
   const noticie = { post: postList, author: author };
-
   return res.status(200).json(noticie);
 });
 

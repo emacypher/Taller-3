@@ -12,10 +12,13 @@ const PcArmadas = () => {
     PCS: null,
   });
 
+  /* Aquí inicializamos history para redireccionar al usuario */
   const history = useHistory();
+    /* Aquí inicializamos dispatch para despachar las acciones de seteo al store */
   const dispatch = useDispatch();
 
   useEffect(() => {
+    /* Solicitamos las pc armadas a la API Rest */
     axios.get("http://localhost:5000/part/pc_armadas").then(({ data }) =>
       setState({
         ...state,
@@ -25,7 +28,10 @@ const PcArmadas = () => {
   }, []);
 
   const selectPc = (item) => {
+    /* Guardamos la pc que se seleccione al store */
     dispatch(PC(item));
+    /* Redirigiamos al usuario al armado de pc */
+    /* En este caso a elegir el software */
     history.push(`/armar_pc`);
   };
   
@@ -34,6 +40,7 @@ const PcArmadas = () => {
       <Navbar />
       <div className={style.Container}>
         <div className={style.Row}>
+        {/* Renderizamos las pc armadas que pedimos a la API Rest */}
           {state.PCS &&
             state.PCS.map((item, index) => {
               return (

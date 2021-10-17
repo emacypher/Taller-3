@@ -6,14 +6,11 @@ import CpuCard from "../cpuCard/cpuCard";
 
 const CardComponent = ({
   list,
-  comeBack,
   next,
   back,
-  index,
   handleSetPart,
-  length,
 }) => {
-  const indices = length / 20;
+  /*Columnas a renderizar */
   const columns = [
     {
       title: "MODELO",
@@ -52,6 +49,7 @@ const CardComponent = ({
       <table>
         <tbody>
           <tr>
+            {/* Renderizado de listas*/}
             {columns.map((field, index) => {
               return (
                 <th key={index} className={style.Columns}>
@@ -63,6 +61,7 @@ const CardComponent = ({
           {list &&
             list.map((data, index) => {
               return (
+                /* Renderizado de las listas */
                 <CpuCard
                   handleSetPart={handleSetPart}
                   style={style}
@@ -73,6 +72,7 @@ const CardComponent = ({
             })}
         </tbody>
       </table>
+      {/* Botones Back and next*/}
       <div className={style.ContainerButton}>
         <button className={style.Arrow} onClick={() => back()}>
           <img src={backArrow} />

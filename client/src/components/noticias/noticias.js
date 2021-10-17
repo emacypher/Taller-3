@@ -28,6 +28,10 @@ const Noticias = ({ store }) => {
   }, []);
 
   const fetchData = async () => {
+    setState({
+      ...state,
+      id: window.location.href.split("/").pop(),
+    })
     if (Number(state.id)) {
       const post = await axios
         .get(`http://localhost:5000/post/${state.id}`)
@@ -61,13 +65,20 @@ const Noticias = ({ store }) => {
 
   const selectTheOtherNoticies = async () => {  
     const id = Number(window.location.href.split("/").pop())
-    var otherNoticies = cloneDeep(store.noticies)
+    var otherNoticies = cloneDeep(store.noticies);
     const filterNoticies = otherNoticies.filter(noticie => noticie.id !== id)
     setNoticies({
       noticiesStore: filterNoticies
     })
   }
-
+  const changeNoticies = async (id) => {
+    history.push(`/noticias/${id}`)
+    await setState({
+      ...state,
+      id: id
+    });
+    await fetchData();
+  }
   return (
     <div className={style.Container}>
       <div className={style.Notice}>
@@ -82,13 +93,12 @@ const Noticias = ({ store }) => {
         </div>
         <h4 className={style.About}>Acerca de: {state.author.name} </h4>
         <div className={style.AboutAuthor}>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's
+        {state.author.about}
         </div>
         <div>
         { otherNoticies.noticiesStore && otherNoticies.noticiesStore.map((noticie, index) => {  
           return(
-            <div key={index} onClick={() => history.push(`/noticias/${noticie.id}`)} className={ style.TitleOtherNoticie }>
+            <div key={index} onClick={() => changeNoticies(noticie.id)} className={ style.TitleOtherNoticie }>
               <p>{ noticie.post_title }</p>
             </div>
           )

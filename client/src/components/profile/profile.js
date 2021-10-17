@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../redux/actionCreaton.js";
 import style from "./profile.module.css";
-import UserPhoto from "../../assets/userPhoto.png";
 import Pen from "../../assets/create.png";
 
 const Profile = () => {
@@ -17,6 +16,7 @@ const Profile = () => {
     email: useSelector((state) => state.email),
     photoUrl: useSelector((state) => state.photo_url),
     password: "",
+    cofirmPassword: ""
   });
 
   const handleProfile = async () => {
@@ -27,6 +27,7 @@ const Profile = () => {
         name: input.name,
         password: input.password,
         email: input.email,
+        photoUrl: input.photoUrl,
       });
       if (response.status === 200) {
         dispatch(login(input));
@@ -39,31 +40,23 @@ const Profile = () => {
     }
   };
 
-  const postToPhoto = (img) => {
-    let body = new FormData()
-    body.set('key', '3b8489ea2bc0ad9ee80ec4ca5a1dfb27')
-    body.append('image', img)
+  const fileChange = async () => {
+    var file = document.getElementById("input_img");
 
-    return axios({
-      method: 'post',
-      url: 'https://api.imgbb.com/1/upload',
-      data: body
-    })
-  }
+    let body = new FormData();
+    body.set("key", "3b8489ea2bc0ad9ee80ec4ca5a1dfb27");
+    body.append("image", file.files[0]);
 
-  const fileChange = () => {
-    var file = document.getElementById('input_img');
-    
-    let body = new FormData()
-    body.set('key', '3b8489ea2bc0ad9ee80ec4ca5a1dfb27')
-    body.append('image', file.files[0])
+    const url = await axios({
+      method: "post",
+      url: "https://api.imgbb.com/1/upload",
+      data: body,
+    });
 
-    return axios({
-      method: 'post',
-      url: 'https://api.imgbb.com/1/upload',
-      data: body
-    })
-    
+    setInput({
+      ...input,
+      photoUrl: url.data.data.url,
+    });
   };
 
   return (
@@ -71,9 +64,20 @@ const Profile = () => {
       <div className={style.Profile}>
         <div className={style.Left}>
           <div className={style.BackgroundPhoto}>
-            <img className={style.PhotoProfile} src={input.photoUrl} alt="ProfileUser" />
+            <img
+              className={style.PhotoProfile}
+              src={input.photoUrl}
+              alt="ProfileUser"
+            />
           </div>
-          <input type="file" id="input_img" onChange={() => fileChange()} accept="image/*"/>
+          <label className={style.custom_file_upload}>
+            <input
+              type="file"
+              id="input_img"
+              onChange={() => fileChange()}
+              accept="image/*"
+            />
+          </label>
           <button className={style.Button} onClick={() => handleProfile()}>
             EDITAR INFO
           </button>
@@ -99,6 +103,12 @@ const Profile = () => {
               type="password"
               value={input.password}
               placeholder="Ingrese nuevo password"
+              onChange={(e) =>
+                setInput({
+                  ...input,
+                  password: e.target.value,
+                })
+              }
             />
             <img src={Pen} alt="Edit" className={style.Pencil} />
           </div>
@@ -106,8 +116,14 @@ const Profile = () => {
             <input
               className={style.Inputs}
               type="password"
-              value={input.password}
+              value={input.cofirmPassword}
               placeholder="Repita nuevo password"
+              onChange={(e) =>
+                setInput({
+                  ...input,
+                  cofirmPassword: e.target.value,
+                })
+              }
             />
             <img src={Pen} alt="Edit" className={style.Pencil} />
           </div>
@@ -115,17 +131,7 @@ const Profile = () => {
       </div>
       <div className={style.PC}>
         <h4 className={style.Title}>PC ARMADAS</h4>
-        <div className={style.ContainerPC}>
-          <div className={style.PCs}>
-            <p>PC 1</p>
-          </div>
-          <div className={style.PCs}>
-            <p>PC 2</p>
-          </div>
-          <div className={style.PCs}>
-            <p>PC 3</p>
-          </div>
-        </div>
+        <div className={style.ContainerPC}></div>
       </div>
     </div>
   );
